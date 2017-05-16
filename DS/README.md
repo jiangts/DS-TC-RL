@@ -55,7 +55,7 @@ Alternatively (recommended), you can run the system from two terminals:
 
 Terminal1:YourPath/SimpleDS>ant SimpleDS
 
-Terminal2:YourPath/SimpleDS/web/main>nodejs runclient.js (train|test) [num_dialogues] [-v|-nv]
+Terminal2:YourPath/SimpleDS/web/main>node runclient.js (train|test) [num_dialogues] [-v|-nv]
 
 ![Alt text](https://github.com/cuayahuitl/SimpleDS/blob/master/screenshots/Screenshot-SimpleDS.png "Example screenshot of SimpleDS at test time (Dialogues=1, Verbose=true)")
 
