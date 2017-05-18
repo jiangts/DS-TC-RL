@@ -1,17 +1,20 @@
 const cheerio = require('cheerio');
 const request = require('request-promise');
 
-const parseForm = function($) {
+const html2json = function($) {
   return $('form').serializeArray();
 };
 
+const json2goal = function(json) {
+  return json;
+}
+
 request('http://www.google.com')
-  .then(function (htmlString) {
-    return cheerio.load(htmlString)
-  })
-  .then(parseForm)
+  .then((htmlString) => cheerio.load(htmlString))
+  .then(html2json)
+  .then((jsons) => jsons.map(json2goal))
   .then(console.log)
   .catch(function (err) {
-    // Crawling failed...
+    console.error('crawling failed');
   });
 
