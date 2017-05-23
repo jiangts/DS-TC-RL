@@ -135,7 +135,7 @@ class nlg:
     def load_nlg_model(self, model_path):
         """ load the trained NLG model """  
         
-        model_params = pickle.load(open(model_path, 'rb'))
+        model_params = pickle.load(open(model_path, 'rb'), encoding='latin1')
     
         hidden_size = model_params['model']['Wd'].shape[0]
         output_size = model_params['model']['Wd'].shape[1]
