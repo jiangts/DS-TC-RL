@@ -1,6 +1,7 @@
 const cheerio = require('cheerio');
 const request = require('request-promise');
 
+
 /* ==== fetch JSON from HTML form ==== */
 const arr2json = (arr) => {
   return arr.reduce((out, field) => {
@@ -18,15 +19,14 @@ const html2json = ($) => {
 
     let fs = '<form>' + $form.html() + '</form>';
     $$ = cheerio.load(fs);
-    console.log(fs);
     arrs.push($$('form').serializeArray());
   });
 
   return arrs.map(arr2json);
 };
 
-/* ==== convert raw json to goal ==== */
 
+/* ==== convert raw json to goal ==== */
 const json2goal = (json) => {
   request_slots = {};
   inform_slots = {};
@@ -42,6 +42,13 @@ const json2goal = (json) => {
   return Object.keys(json).length > 0 ? {request_slots, inform_slots, diaact} : null;
 }
 
+
+
+/********   Parse URL/HTML   ********/
+/* 
+  return: promise of pased result 
+*/
+
 exports.parse = (options) => {
   const {url, html} = options;
 
@@ -54,12 +61,11 @@ exports.parse = (options) => {
     handler = Promise.resolve(html);
   }
 
-  handler
+  return handler
     .then(htmlString => cheerio.load(htmlString))
     .then(html2json)
     .then(jsons => jsons.map(json2goal))
     .then(tasks => tasks.filter(t => t))
-    .then(console.log)
     .catch(err => {
       console.error('Crawling Failed');
       console.error(err);

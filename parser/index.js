@@ -6,6 +6,12 @@ const argv = require('yargs').help().argv;
 
 const fs = require('fs');
 
+output_path = argv.output
+if(!output_path) {
+	console.error("Please specify output file path: --output")
+	return;
+}
+
 /***** Parsing HTML *****/
 if(argv.html) {
 	parser.parse({html: argv.html});
@@ -17,9 +23,16 @@ if(argv.file) {
   parser.parse({html});
 }
 
-/***** Parsing URL *****/
+/***** Parsing URL and Dump to File *****/
 if(argv._[0] || argv.url) {
 	url = argv.url || argv._[0]
-	parser.parse({url: url});
-	console.log("URL Parsed: ", url)
+	parsed_handler = parser.parse({url: url});
+	
+	parsed_handler.then(parsed=>fs.writeFile("./goal.json",JSON.stringify(parsed)))
+	.then(console.log("URL Parsed:        ", url))
+	.then(console.log("Result written to: ", output_path))
+	.catch(err => {
+      console.error('File Dumpping Failed');
+      console.error(err);
+    });
 }
