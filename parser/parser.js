@@ -1,20 +1,68 @@
 const cheerio = require('cheerio');
 const request = require('request-promise');
 
-const html2json = function($) {
-  return $('form').serializeArray();
-};
-
-const json2goal = function(json) {
-  return json;
+/* ==== fetch JSON from HTML form ==== */
+const arr2json = (arr) => {
+  return arr.reduce((out, field) => {
+    out[field.name] = field.value;
+    return out;
+  }, {});
 }
 
-request('http://www.google.com')
-  .then((htmlString) => cheerio.load(htmlString))
-  .then(html2json)
-  .then((jsons) => jsons.map(json2goal))
-  .then(console.log)
-  .catch(function (err) {
-    console.error('crawling failed');
+const html2json = ($) => {
+  arrs = [];
+  $('form').each((i, elem) => {
+    var $form = $('<form>');
+
+    $form.append($(elem).find('input'));
+
+    let fs = '<form>' + $form.html() + '</form>';
+    $$ = cheerio.load(fs);
+    console.log(fs);
+    arrs.push($$('form').serializeArray());
   });
+
+  return arrs.map(arr2json);
+};
+
+/* ==== convert raw json to goal ==== */
+
+const json2goal = (json) => {
+  request_slots = {};
+  inform_slots = {};
+  diaact = 'request';
+  for(const key in json) {
+    const value = json[key];
+    if (value === '') {
+      request_slots[key] = 'UNK';
+    } else {
+      inform_slots[key] = value;
+    }
+  }
+  return Object.keys(json).length > 0 ? {request_slots, inform_slots, diaact} : null;
+}
+
+exports.parse = (options) => {
+  const {url, html} = options;
+
+  let handler;
+
+  if(url) {
+    handler = request(url)
+  }
+  if(html) {
+    handler = Promise.resolve(html);
+  }
+
+  handler
+    .then(htmlString => cheerio.load(htmlString))
+    .then(html2json)
+    .then(jsons => jsons.map(json2goal))
+    .then(tasks => tasks.filter(t => t))
+    .then(console.log)
+    .catch(err => {
+      console.error('Crawling Failed');
+      console.error(err);
+    });
+}
 
