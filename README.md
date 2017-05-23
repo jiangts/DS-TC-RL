@@ -2,4 +2,4 @@
 
 **Dialogue System** for **Task Completion** using **Reinforcement Learning**
 
-CS234 Final Project
+Stanford CS234 Course Project | 2017 Spring
