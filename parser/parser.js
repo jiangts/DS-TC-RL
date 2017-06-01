@@ -19,6 +19,7 @@ const html2json = ($) => {
 
     let fs = '<form>' + $form.html() + '</form>';
     $$ = cheerio.load(fs);
+
     arrs.push($$('form').serializeArray());
   });
 
@@ -45,8 +46,8 @@ const json2goal = (json) => {
 
 
 /********   Parse URL/HTML   ********/
-/* 
-  return: promise of pased result 
+/*
+  return: promise of parsed result
 */
 
 exports.parse = (options) => {
@@ -66,6 +67,7 @@ exports.parse = (options) => {
     .then(html2json)
     .then(jsons => jsons.map(json2goal))
     .then(tasks => tasks.filter(t => t))
+    .then(console.log)
     .catch(err => {
       console.error('Crawling Failed');
       console.error(err);

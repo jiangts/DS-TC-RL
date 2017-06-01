@@ -19,20 +19,21 @@ if(argv.html) {
 
 /***** Parsing File *****/
 if(argv.file) {
-  html = fs.readFileSync(argv.file, 'utf8');
+  const html = fs.readFileSync(argv.file, 'utf8');
   parser.parse({html});
 }
 
 /***** Parsing URL and Dump to File *****/
 if(argv._[0] || argv.url) {
-	url = argv.url || argv._[0]
-	parsed_handler = parser.parse({url: url});
-	
-	parsed_handler.then(parsed=>fs.writeFile("./goal.json",JSON.stringify(parsed)))
-	.then(console.log("URL Parsed:        ", url))
-	.then(console.log("Result written to: ", output_path))
-	.catch(err => {
-      console.error('File Dumpping Failed');
-      console.error(err);
-    });
+  const url = argv.url || argv._[0]
+  parsed_handler = parser.parse({url: url});
+
+  parsed_handler
+  .then(parsed => fs.writeFileSync("./goal.json", JSON.stringify(parsed)))
+  .then(console.log("URL Parsed:        ", url))
+  .then(console.log("Result written to: ", output_path))
+  .catch(err => {
+    console.error('File Dumping Failed');
+    console.error(err);
+  });
 }
