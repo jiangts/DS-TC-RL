@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const request = require('request-promise');
+const fakeit = require('./fakeit');
 
 
 /* ==== fetch JSON from HTML form ==== */
@@ -26,7 +27,6 @@ const html2json = ($) => {
   return arrs.map(arr2json);
 };
 
-
 /* ==== convert raw json to goal ==== */
 const json2goal = (json) => {
   request_slots = {};
@@ -34,6 +34,7 @@ const json2goal = (json) => {
   diaact = 'request';
   for(const key in json) {
     const value = json[key];
+    fakeit(key);
     if (value === '') {
       request_slots[key] = 'UNK';
     } else {

@@ -29,7 +29,7 @@ if(argv._[0] || argv.url) {
   parsed_handler = parser.parse({url: url});
 
   parsed_handler
-  .then(parsed => fs.writeFileSync("./goal.json", JSON.stringify(parsed)))
+  // .then(parsed => fs.writeFileSync("./goal.json", JSON.stringify(parsed)))
   .then(console.log("URL Parsed:        ", url))
   .then(console.log("Result written to: ", output_path))
   .catch(err => {
