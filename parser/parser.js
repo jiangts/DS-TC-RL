@@ -33,8 +33,8 @@ const json2goal = (json) => {
   inform_slots = {};
   diaact = 'request';
   for(const key in json) {
-    const value = json[key];
-    fakeit(key);
+    let value = json[key];
+    if (!value) { value = fakeit(key); }
     if (value === '') {
       request_slots[key] = 'UNK';
     } else {
@@ -71,6 +71,25 @@ exports.parse = (options) => {
     .then(console.log)
     .catch(err => {
       console.error('Crawling Failed');
+      console.error(err);
+    });
+}
+
+function repeatSimple(element, times)
+{
+    var result = [];
+    for(var i=0;i<times;i++)
+      result.push(element);
+    return result;
+}
+
+exports.load = (array, options) => {
+  return Promise.resolve(repeatSimple(array, 100))
+    .then(arrs => arrs.map(arr2json))
+    .then(jsons => jsons.map(json2goal))
+    .then(console.log)
+    .catch(err => {
+      console.error('Loading Failed');
       console.error(err);
     });
 }

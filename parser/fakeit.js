@@ -178,6 +178,37 @@ const fields = {
   ]
 };
 
+const randint = function (min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const specialRules = function(field) {
+  switch (field) {
+    case 'origin1':
+      return faker.address.city();
+      break;
+    case 'destination1':
+      return faker.address.city();
+      break;
+    case 'flightDate1':
+      return faker.date.past();
+      break;
+    case 'flightDate2':
+      return faker.date.future();
+      break;
+    case 'flexible':
+      return Math.random() > 0.5;
+      break;
+    case 'travelers':
+      return randint(0, 7);
+      break;
+    default:
+      break;
+  }
+}
+
 module.exports = function(field) {
   for(var name in fields) {
     var category = fields[name];
@@ -191,6 +222,8 @@ module.exports = function(field) {
       }
     }
   }
+  const special = specialRules(field);
+  if (special !== null) return special;
   console.warn(`No generator found for "${field}"`);
   return 'UNK';
 }

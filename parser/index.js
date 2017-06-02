@@ -23,6 +23,13 @@ if(argv.file) {
   parser.parse({html});
 }
 
+/***** Parsing File *****/
+if(argv.load) {
+  const arr = JSON.parse(fs.readFileSync(argv.load, 'utf8'));
+  console.log(arr);
+  parser.load(arr);
+}
+
 /***** Parsing URL and Dump to File *****/
 if(argv._[0] || argv.url) {
   const url = argv.url || argv._[0]
