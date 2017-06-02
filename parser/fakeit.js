@@ -202,7 +202,7 @@ const specialRules = function(field) {
       return Math.random() > 0.5;
       break;
     case 'travelers':
-      return randint(0, 7);
+      return randint(1, 5);
       break;
     default:
       break;

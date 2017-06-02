@@ -34,7 +34,8 @@ const json2goal = (json) => {
   diaact = 'request';
   for(const key in json) {
     let value = json[key];
-    if (!value) { value = fakeit(key); }
+    // if (!value) { value = fakeit(key); }
+    value = fakeit(key);
     if (value === '') {
       request_slots[key] = 'UNK';
     } else {
