@@ -88,6 +88,7 @@ exports.load = (array, options) => {
   return Promise.resolve(repeatSimple(array, 100))
     .then(arrs => arrs.map(arr2json))
     .then(jsons => jsons.map(json2goal))
+    .then(stuff => JSON.stringify(stuff))
     .then(console.log)
     .catch(err => {
       console.error('Loading Failed');
