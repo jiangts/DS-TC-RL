@@ -26,8 +26,7 @@ if(argv.file) {
 /***** Parsing File *****/
 if(argv.load) {
   const arr = JSON.parse(fs.readFileSync(argv.load, 'utf8'));
-  console.log(arr);
-  parser.load(arr);
+  parser.load(arr, {kbpath: argv.kbpath, goalpath: argv.goalpath});
 }
 
 /***** Parsing URL and Dump to File *****/
