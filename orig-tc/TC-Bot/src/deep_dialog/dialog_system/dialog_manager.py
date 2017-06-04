@@ -46,6 +46,10 @@ class DialogManager:
         ########################################################################
         self.state = self.state_tracker.get_state_for_agent()
         self.agent_action = self.agent.state_to_action(self.state)
+
+        print "state 1"
+        print "state nig"
+        print self.state
         
         ########################################################################
         #   Register AGENT action with the state_tracker
@@ -55,6 +59,8 @@ class DialogManager:
         self.agent.add_nl_to_action(self.agent_action) # add NL to Agent Dia_Act
         self.print_function(agent_action = self.agent_action['act_slot_response'])
         
+        print "state 2"
+
         ########################################################################
         #   CALL USER TO TAKE HER TURN
         ########################################################################
@@ -62,12 +68,16 @@ class DialogManager:
         self.user_action, self.episode_over, dialog_status = self.user.next(self.sys_action)
         self.reward = self.reward_function(dialog_status)
         
+        print "state 3"
+
         ########################################################################
         #   Update state tracker with latest user action
         ########################################################################
         if self.episode_over != True:
             self.state_tracker.update(user_action = self.user_action)
             self.print_function(user_action = self.user_action)
+
+        print "state 4"
 
         ########################################################################
         #  Inform agent of the outcome for this timestep (s_t, a_t, r, s_{t+1}, episode_over)

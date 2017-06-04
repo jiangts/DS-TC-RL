@@ -76,8 +76,8 @@ class nlg:
     def translate_diaact(self, dia_act):
         """ prepare the diaact into vector representation, and generate the sentence by Model """
         
-        print dia_act
-        return "balls in your mouth"
+        #print dia_act
+        return "error writing sentence"
 
         word_dict = self.word_dict
         template_word_dict = self.template_word_dict
