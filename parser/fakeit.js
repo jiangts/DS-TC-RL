@@ -184,19 +184,27 @@ const randint = function (min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// https://www.world-airport-codes.com/world-top-30-airports.html
+const airports1 = [ 'SEA', 'CTU', 'YYZ', 'MUC', 'BOM', 'FCO'];
+const airports2 = ['LGW', 'SYD', 'SZX', 'BCN', 'GRU', 'SHA', 'MCO' ];
+
+const flightCodes = function(airports) {
+  return airports[randint(0,airports.length)]
+}
+
 const specialRules = function(field) {
   switch (field) {
     case 'origin1':
-      return faker.address.city();
+      return flightCodes(airports1);
       break;
     case 'destination1':
-      return faker.address.city();
+      return flightCodes(airports2);
       break;
     case 'flightDate1':
-      return faker.date.past();
+      return randint(0,3);
       break;
     case 'flightDate2':
-      return faker.date.future();
+      return randint(3,7);
       break;
     case 'flexible':
       return Math.random() > 0.5;
