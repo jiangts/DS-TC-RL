@@ -1,7 +1,8 @@
 import cPickle as pickle
 import jsonpickle
+import sys
 
-goal_file_path = "goals.json"
+goal_file_path = sys.argv[1]
 
 with open(goal_file_path, 'rb') as f:
     data = ' '.join(f.readlines())
