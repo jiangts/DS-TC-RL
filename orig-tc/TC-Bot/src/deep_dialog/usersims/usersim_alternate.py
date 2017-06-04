@@ -166,8 +166,6 @@ class AlternateSimulator(UserSimulator):
     def next(self, system_action):
         """ Generate next User Action based on last System Action """
 
-        print self.state
-
         self.state['turn'] += 2
         self.episode_over = False
         self.dialog_status = dialog_config.NO_OUTCOME_YET

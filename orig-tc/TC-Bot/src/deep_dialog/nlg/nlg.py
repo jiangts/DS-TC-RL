@@ -69,6 +69,10 @@ class nlg:
         if dia_act['diaact'] == 'inform' and 'taskcomplete' in dia_act['inform_slots'].keys() and dia_act['inform_slots']['taskcomplete'] == dialog_config.NO_VALUE_MATCH:
             sentence = "Oh sorry, there is no ticket available."
         
+        if boolean_in == False:
+            print "error, Allen, this should have found a sentence based on the slots to fill"
+            print "see where we call diaact_to_nl_slot_filling() above!"
+
         if boolean_in == False: sentence = self.translate_diaact(dia_act)
         return sentence
         
