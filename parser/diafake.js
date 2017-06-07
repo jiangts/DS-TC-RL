@@ -77,6 +77,7 @@ function domagic(utype, reqtypes, reqfrag, cs) {
       sentence.push(foolishness[1])
       informs.push(foolishness[0])
     })
+    sentence.splice(sentence.length-1, 0, 'and');
     fullsentence = sentence.join(' ') + '?'
     out.request_slots = reqtypes
     out.nl[utype] = fullsentence
