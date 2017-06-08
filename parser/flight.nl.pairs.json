@@ -1,6 +1,53 @@
 {
   "dia_acts": {
     "request": [
+
+      {
+        "nl": {
+          "usr": "I'm flying from $origin1$",
+          "agt": "You'll be flying from $origin1$"
+        },
+        "request_slots": [
+        ],
+        "inform_slots": [
+          "origin1"
+        ]
+      },
+      {
+        "nl": {
+          "usr": "I'm going to $destination1$",
+          "agt": "You'll be going to $destination1$"
+        },
+        "request_slots": [
+        ],
+        "inform_slots": [
+          "destination1"
+        ]
+      },
+      {
+        "nl": {
+          "usr": "I'll depart on $flightDate1$",
+          "agt": "You'll depart on $flightDate1$"
+        },
+        "request_slots": [
+        ],
+        "inform_slots": [
+          "flightDate1"
+        ]
+      },
+      {
+        "nl": {
+          "usr": "I'll arrive on $flightDate2$",
+          "agt": "You'll arrive on $flightDate2$"
+        },
+        "request_slots": [
+        ],
+        "inform_slots": [
+          "flightDate2"
+        ]
+      },
+
+
       {
         "nl": {
           "usr": "May I buy a ticket?",
@@ -52,17 +99,6 @@
         },
         "request_slots": [
           "flightDate2"
-        ],
-        "inform_slots": [
-        ]
-      },
-      {
-        "nl": {
-          "usr": "Are there flexible flight dates?",
-          "agt": "Are your dates flexible?"
-        },
-        "request_slots": [
-          "flexible"
         ],
         "inform_slots": [
         ]

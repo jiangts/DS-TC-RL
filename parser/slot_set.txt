@@ -1,6 +1,5 @@
 destination1
 flightDate2
-flexible
 flightDate1
 origin1
 travelers
