@@ -62,6 +62,9 @@ class AgentDQN(Agent):
             self.predict_mode = True
             self.warm_start = 2
             
+    def clear_exp_pool(self): 
+        self.experience_replay_pool = [] #experience replay pool <s_t, a_t, r_t, s_t+1>  
+
             
     def initialize_episode(self):
         """ Initialize a new episode. This function is called every time a new episode is run. """
