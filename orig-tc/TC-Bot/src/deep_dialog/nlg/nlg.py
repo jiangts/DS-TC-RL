@@ -62,10 +62,10 @@ class nlg:
                 if dia_act['inform_slots'][slot] == dialog_config.I_DO_NOT_CARE: del dia_act['inform_slots'][slot]
 
         if dia_act['diaact'] in self.diaact_nl_pairs['dia_acts'].keys():
+            print 'diaact', dia_act
+            print 'diaactnlpairs', self.diaact_nl_pairs['dia_acts'].keys()
             for ele in self.diaact_nl_pairs['dia_acts'][dia_act['diaact']]:
-                # print 'ele', ele['inform_slots']
-                # print 'dia_act', dia_act['inform_slots']
-                if set(ele['inform_slots']) == set(dia_act['inform_slots'].keys()) and set(ele['request_slots']) == set(dia_act['request_slots'].keys()):
+                #if set(ele['inform_slots']) == set(dia_act['inform_slots'].keys()) and set(ele['request_slots']) == set(dia_act['request_slots'].keys()):
                     sentence = self.diaact_to_nl_slot_filling(dia_act, ele['nl'][turn_msg])
                     boolean_in = True
                     break
@@ -84,7 +84,7 @@ class nlg:
     def translate_diaact(self, dia_act):
         """ prepare the diaact into vector representation, and generate the sentence by Model """
 
-        print dia_act
+        print "DIA ACT", dia_act
         # return "error writing sentence"
 
         word_dict = self.word_dict
@@ -110,7 +110,7 @@ class nlg:
             words[0, word_dict['s_o_s']] = 1.0
 
         for slot in dia_act['inform_slots'].keys():
-            print slot_dict
+            print "SLOT DICT", slot_dict
             slot_index = slot_dict[slot]
             slot_rep[0, slot_index*slot_rep_bit] = 1.0
 
@@ -146,7 +146,6 @@ class nlg:
 
     def load_nlg_model(self, model_path):
         """ load the trained NLG model """
-        return
 
         model_params = pickle.load(open(model_path, 'rb'))
 

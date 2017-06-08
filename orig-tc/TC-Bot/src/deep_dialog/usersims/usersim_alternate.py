@@ -19,59 +19,59 @@ from deep_dialog import dialog_config
 
 class AlternateSimulator(UserSimulator):
     """ A rule-based user simulator for testing dialog policy """
-    
+
     def __init__(self, movie_dict=None, act_set=None, slot_set=None, start_set=None, params=None):
         """ Constructor shared by all user simulators """
-        
+
         self.movie_dict = movie_dict
         self.act_set = act_set
         self.slot_set = slot_set
         self.start_set = start_set
-        
+
         self.max_turn = params['max_turn']
         self.slot_err_probability = params['slot_err_probability']
         self.slot_err_mode = params['slot_err_mode']
         self.intent_err_probability = params['intent_err_probability']
-        
+
         self.simulator_run_mode = params['simulator_run_mode']
         self.simulator_act_level = params['simulator_act_level']
-        
+
         self.learning_phase = params['learning_phase']
-    
+
     def initialize_episode(self):
-        """ Initialize a new episode (dialog) 
+        """ Initialize a new episode (dialog)
         state['history_slots']: keeps all the informed_slots
         state['rest_slots']: keep all the slots (which is still in the stack yet)
         """
-        
+
         self.state = {}
         self.state['history_slots'] = {}
         self.state['inform_slots'] = {}
         self.state['request_slots'] = {}
         self.state['rest_slots'] = []
         self.state['turn'] = 0
-        
+
         self.episode_over = False
         self.dialog_status = dialog_config.NO_OUTCOME_YET
-        
+
         #self.goal =  random.choice(self.start_set)
         self.goal = self._sample_goal(self.start_set)
         self.goal['request_slots']['ticket'] = 'UNK'
         self.constraint_check = dialog_config.CONSTRAINT_CHECK_FAILURE
-  
+
         """ Debug: build a fake goal mannually """
         #self.debug_falk_goal()
-        
+
         # sample first action
         user_action = self._sample_action()
         assert (self.episode_over != 1),' but we just started'
-        return user_action  
-        
+        return user_action
+
     def _sample_action(self):
         """ randomly sample a start action based on user goal """
-        
+
         self.state['diaact'] = random.choice(dialog_config.start_dia_acts.keys())
-        
+
         # "sample" informed slots
         if len(self.goal['inform_slots']) > 0:
             known_slot = random.choice(self.goal['inform_slots'].keys())
@@ -79,13 +79,13 @@ class AlternateSimulator(UserSimulator):
 
             if 'moviename' in self.goal['inform_slots'].keys(): # 'moviename' must appear in the first user turn
                 self.state['inform_slots']['moviename'] = self.goal['inform_slots']['moviename']
-                
+
             for slot in self.goal['inform_slots'].keys():
                 if known_slot == slot or slot == 'moviename': continue
                 self.state['rest_slots'].append(slot)
-        
+
         self.state['rest_slots'].extend(self.goal['request_slots'].keys())
-        
+
         # "sample" a requested slot
         request_slot_set = list(self.goal['request_slots'].keys())
         request_slot_set.remove('ticket')
@@ -94,7 +94,7 @@ class AlternateSimulator(UserSimulator):
         else:
             request_slot = 'ticket'
         self.state['request_slots'][request_slot] = 'UNK'
-        
+
         if len(self.state['request_slots']) == 0:
             self.state['diaact'] = 'inform'
 
@@ -106,20 +106,20 @@ class AlternateSimulator(UserSimulator):
         sample_action['inform_slots'] = self.state['inform_slots']
         sample_action['request_slots'] = self.state['request_slots']
         sample_action['turn'] = self.state['turn']
-        
+
         self.add_nl_to_action(sample_action)
         return sample_action
-    
+
     def _sample_goal(self, goal_set):
         """ sample a user goal  """
-        
+
         sample_goal = random.choice(self.start_set[self.learning_phase])
         return sample_goal
-    
-    
+
+
     def corrupt(self, user_action):
         """ Randomly corrupt an action with error probs (slot_err_probability and slot_err_mode) on Slot and Intent (intent_err_probability). """
-        
+
         for slot in user_action['inform_slots'].keys():
             slot_err_prob_sample = random.random()
             if slot_err_prob_sample < self.slot_err_probability: # add noise for slot level
@@ -141,14 +141,14 @@ class AlternateSimulator(UserSimulator):
                     user_action[random_slot] = random.choice(self.movie_dict[random_slot])
                 elif self.slot_err_mode == 3: # delete the slot
                     del user_action['inform_slots'][slot]
-                    
+
         intent_err_sample = random.random()
         if intent_err_sample < self.intent_err_probability: # add noise for intent level
             user_action['diaact'] = random.choice(self.act_set.keys())
-    
+
     def debug_falk_goal(self):
         """ Debug function: build a fake goal mannually (Can be moved in future) """
-        
+
         self.goal['inform_slots'].clear()
         #self.goal['inform_slots']['city'] = 'seattle'
         self.goal['inform_slots']['numberofpeople'] = '2'
@@ -162,16 +162,16 @@ class AlternateSimulator(UserSimulator):
         self.goal['request_slots']['theater'] = 'UNK'
         self.goal['request_slots']['starttime'] = 'UNK'
         self.goal['request_slots']['date'] = 'UNK'
-        
+
     def next(self, system_action):
         """ Generate next User Action based on last System Action """
 
         self.state['turn'] += 2
         self.episode_over = False
         self.dialog_status = dialog_config.NO_OUTCOME_YET
-        
+
         sys_act = system_action['diaact']
-        
+
         if (self.max_turn > 0 and self.state['turn'] > self.max_turn):
             self.dialog_status = dialog_config.FAILED_DIALOG
             self.episode_over = True
@@ -185,7 +185,7 @@ class AlternateSimulator(UserSimulator):
             elif sys_act == "multiple_choice":
                 self.response_multiple_choice(system_action)
             elif sys_act == "request":
-                self.response_request(system_action) 
+                self.response_request(system_action)
             elif sys_act == "thanks":
                 self.response_thanks(system_action)
             elif sys_act == "confirm_answer":
@@ -195,22 +195,22 @@ class AlternateSimulator(UserSimulator):
                 self.state['diaact'] = "thanks"
 
         self.corrupt(self.state)
-        
+
         response_action = {}
         response_action['diaact'] = self.state['diaact']
         response_action['inform_slots'] = self.state['inform_slots']
         response_action['request_slots'] = self.state['request_slots']
         response_action['turn'] = self.state['turn']
         response_action['nl'] = ""
-        
+
         # add NL to dia_act
-        self.add_nl_to_action(response_action)                       
+        self.add_nl_to_action(response_action)
         return response_action, self.episode_over, self.dialog_status
-    
-    
+
+
     def response_confirm_answer(self, system_action):
         """ Response for Confirm_Answer (System Action) """
-    
+
         if len(self.state['rest_slots']) > 0:
             request_slot = random.choice(self.state['rest_slots'])
 
@@ -224,10 +224,10 @@ class AlternateSimulator(UserSimulator):
                     self.state['rest_slots'].remove(request_slot)
         else:
             self.state['diaact'] = "thanks"
-            
+
     def response_thanks(self, system_action):
         """ Response for Thanks (System Action) """
-        
+
         self.episode_over = True
         self.dialog_status = dialog_config.SUCCESS_DIALOG
 
@@ -251,13 +251,13 @@ class AlternateSimulator(UserSimulator):
         if 'ticket' in system_action['inform_slots'].keys():
             if system_action['inform_slots']['ticket'] == dialog_config.NO_VALUE_MATCH:
                 self.dialog_status = dialog_config.FAILED_DIALOG
-                
+
         if self.constraint_check == dialog_config.CONSTRAINT_CHECK_FAILURE:
             self.dialog_status = dialog_config.FAILED_DIALOG
-    
+
     def response_request(self, system_action):
         """ Response for Request (System Action) """
-        
+
         if len(system_action['request_slots'].keys()) > 0:
             slot = system_action['request_slots'].keys()[0] # only one slot
             if slot in self.goal['inform_slots'].keys(): # request slot in user's constraints  #and slot not in self.state['request_slots'].keys():
@@ -303,7 +303,7 @@ class AlternateSimulator(UserSimulator):
 
     def response_multiple_choice(self, system_action):
         """ Response for Multiple_Choice (System Action) """
-        
+
         slot = system_action['inform_slots'].keys()[0]
         if slot in self.goal['inform_slots'].keys():
             self.state['inform_slots'][slot] = self.goal['inform_slots'][slot]
@@ -313,20 +313,20 @@ class AlternateSimulator(UserSimulator):
         self.state['diaact'] = "inform"
         if slot in self.state['rest_slots']: self.state['rest_slots'].remove(slot)
         if slot in self.state['request_slots'].keys(): del self.state['request_slots'][slot]
-        
+
     def response_inform(self, system_action):
         """ Response for Inform (System Action) """
-        
+
         if 'taskcomplete' in system_action['inform_slots'].keys(): # check all the constraints from agents with user goal
             self.state['diaact'] = "thanks"
             #if 'ticket' in self.state['rest_slots']: self.state['request_slots']['ticket'] = 'UNK'
             self.constraint_check = dialog_config.CONSTRAINT_CHECK_SUCCESS
-                    
+
             if system_action['inform_slots']['taskcomplete'] == dialog_config.NO_VALUE_MATCH:
                 self.state['history_slots']['ticket'] = dialog_config.NO_VALUE_MATCH
                 if 'ticket' in self.state['rest_slots']: self.state['rest_slots'].remove('ticket')
                 if 'ticket' in self.state['request_slots'].keys(): del self.state['request_slots']['ticket']
-                    
+
             for slot in self.goal['inform_slots'].keys():
                 #  Deny, if the answers from agent can not meet the constraints of user
                 if slot not in system_action['inform_slots'].keys() or (self.goal['inform_slots'][slot].lower() != system_action['inform_slots'][slot].lower()):
@@ -338,11 +338,11 @@ class AlternateSimulator(UserSimulator):
         else:
             for slot in system_action['inform_slots'].keys():
                 self.state['history_slots'][slot] = system_action['inform_slots'][slot]
-                        
+
                 if slot in self.goal['inform_slots'].keys():
                     if system_action['inform_slots'][slot] == self.goal['inform_slots'][slot]:
                         if slot in self.state['rest_slots']: self.state['rest_slots'].remove(slot)
-                                
+
                         if len(self.state['request_slots']) > 0:
                             self.state['diaact'] = "request"
                         elif len(self.state['rest_slots']) > 0:
@@ -400,7 +400,7 @@ class AlternateSimulator(UserSimulator):
                                 self.state['inform_slots'][inform_slot] = self.goal['inform_slots'][inform_slot]
                                 self.state['diaact'] = "inform"
                                 self.state['rest_slots'].remove(inform_slot)
-                                        
+
                                 if 'ticket' in self.state['rest_slots']:
                                     self.state['request_slots']['ticket'] = 'UNK'
                                     self.state['diaact'] = "request"
@@ -412,7 +412,7 @@ class AlternateSimulator(UserSimulator):
                             self.state['diaact'] = "request"
                     else:
                         self.state['diaact'] = "thanks" # or replies "confirm_answer"
-        
+
 
 
 
