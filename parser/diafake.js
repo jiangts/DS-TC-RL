@@ -113,6 +113,10 @@ for(var i = 0; i < out.length; i++) {
   }
 }
 
+out = out.reduce((coll, nxt) => {
+  return coll.concat(nxt)
+}, [])
+
 out = {dia_acts: {request: out}}
 
 print(
