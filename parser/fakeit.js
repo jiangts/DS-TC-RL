@@ -201,16 +201,16 @@ const specialRules = function(field) {
       return flightCodes(airports2);
       break;
     case 'flightDate1':
-      return randint(0,3);
+      return randint(0,3) + '';
       break;
     case 'flightDate2':
-      return randint(3,7);
+      return randint(3,7) + '';
       break;
     case 'flexible':
-      return Math.random() > 0.5;
+      return !!(Math.random() > 0.5) + '';
       break;
     case 'travelers':
-      return randint(1, 5);
+      return randint(1, 5) + '';
       break;
     default:
       break;
