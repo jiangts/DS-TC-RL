@@ -74,8 +74,8 @@ class nlg:
             sentence = "Oh sorry, there is no ticket available."
 
         if boolean_in == False:
-            print "ERROR! this should have found a sentence based on the slots to fill"
-            sentence = "I'm confused."
+            # print "ERROR! this should have found a sentence based on the slots to fill"
+            sentence = "Would you like to purchase tickets?"
             # see where we call diaact_to_nl_slot_filling() above!
 
         # if boolean_in == False: sentence = self.translate_diaact(dia_act)
