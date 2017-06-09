@@ -25,7 +25,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$flightDate1$ is available.",
-          "usr": "I want to watch at $flightDate1$."
+          "usr": "I want to leave at $flightDate1$."
         },
         "inform_slots": [
           "flightDate1"
@@ -35,7 +35,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$destination1$ is available.",
-          "usr": "I want to watch to $destination1$."
+          "usr": "I want to go to $destination1$."
         },
         "inform_slots": [
           "destination1"
@@ -76,7 +76,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$flightDate1$ on $flightDate2$ is available.",
-          "usr": "I want to watch at $flightDate1$ on $flightDate2$."
+          "usr": "I want to leave at $flightDate1$ and arrive on $flightDate2$."
         },
         "inform_slots": [
           "flightDate2",
@@ -87,7 +87,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$origin1$ at $flightDate1$ is available.",
-          "usr": "I want to watch $origin1$ at $flightDate1$."
+          "usr": "I want to go to $origin1$ at $flightDate1$."
         },
         "inform_slots": [
           "origin1",
@@ -117,68 +117,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "$genre$ is available",
-          "usr": "I want to watch a $genre$ movie."
-        },
-        "inform_slots": [
-          "genre"
-        ]
-      },
-      {
-        "request_slots": [],
-        "nl": {
-          "agt": "$mpaa_rating$",
-          "usr": "$mpaa_rating$"
-        },
-        "inform_slots": [
-          "mpaa_rating"
-        ]
-      },
-      {
-        "request_slots": [],
-        "nl": {
-          "agt": "$video_format$",
-          "usr": "$video_format$"
-        },
-        "inform_slots": [
-          "video_format"
-        ]
-      },
-      {
-        "request_slots": [],
-        "nl": {
-          "agt": "$price$",
-          "usr": "$price$"
-        },
-        "inform_slots": [
-          "price"
-        ]
-      },
-      {
-        "request_slots": [],
-        "nl": {
-          "agt": "$numberofkids$",
-          "usr": "$numberofkids$"
-        },
-        "inform_slots": [
-          "numberofkids"
-        ]
-      },
-      {
-        "request_slots": [],
-        "nl": {
-          "agt": "$movie_series$",
-          "usr": "$movie_series$"
-        },
-        "inform_slots": [
-          "movie_series"
-        ]
-      },
-      {
-        "request_slots": [],
-        "nl": {
           "agt": "$flightDate1$ to $destination1$ is available.",
-          "usr": "I want to watch at $flightDate1$ to $destination1$."
+          "usr": "I want to go at $flightDate1$ to $destination1$."
         },
         "inform_slots": [
           "destination1",
@@ -188,8 +128,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "$origin1$ is playing at $flightDate1$ to $destination1$.",
-          "usr": "$origin1$ is playing at $flightDate1$ to $destination1$."
+          "agt": "There is a flight from $origin1$ on $flightDate1$ to $destination1$.",
+          "usr": "There is a flight from $origin1$ on $flightDate1$ to $destination1$."
         },
         "inform_slots": [
           "destination1",
@@ -214,20 +154,10 @@
           "taskcomplete"
         ],
         "nl": {
-          "agt": "Okay, your tickets is booked.",
-          "usr": "Okay, your tickets is booked."
+          "agt": "Okay, your tickets are booked.",
+          "usr": "Okay, your tickets are booked."
         },
         "inform_slots": []
-      },
-      {
-        "request_slots": [],
-        "nl": {
-          "agt": "$other$",
-          "usr": "$other$"
-        },
-        "inform_slots": [
-          "other"
-        ]
       },
       {
         "request_slots": [],

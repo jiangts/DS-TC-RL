@@ -61,8 +61,8 @@ class nlg:
             for slot in inform_slot_set:
                 if dia_act['inform_slots'][slot] == dialog_config.I_DO_NOT_CARE: del dia_act['inform_slots'][slot]
 
-        print 'inform', dia_act['inform_slots'].keys()
-        print 'request', dia_act['request_slots'].keys()
+        # print 'inform', dia_act['inform_slots'].keys()
+        # print 'request', dia_act['request_slots'].keys()
         if dia_act['diaact'] in self.diaact_nl_pairs['dia_acts'].keys():
             for ele in self.diaact_nl_pairs['dia_acts'][dia_act['diaact']]:
                 if set(ele['inform_slots']) == set(dia_act['inform_slots'].keys()) and set(ele['request_slots']) == set(dia_act['request_slots'].keys()):
@@ -75,6 +75,8 @@ class nlg:
 
         if boolean_in == False:
             # print "ERROR! this should have found a sentence based on the slots to fill"
+            print 'inform', dia_act['inform_slots'].keys()
+            print 'request', dia_act['request_slots'].keys()
             sentence = "Would you like to purchase tickets?"
             # see where we call diaact_to_nl_slot_filling() above!
 
