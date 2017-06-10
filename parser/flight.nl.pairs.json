@@ -25,7 +25,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$flightDate1$ is available.",
-          "usr": "I want to leave at $flightDate1$."
+          "usr": "I want to leave on $flightDate1$."
         },
         "inform_slots": [
           "flightDate1"
@@ -45,7 +45,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$flightDate2$ is available.",
-          "usr": "I want to set it up $flightDate2$"
+          "usr": "I want to arrive on $flightDate2$"
         },
         "inform_slots": [
           "flightDate2"
@@ -64,8 +64,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "$travelers$ tickets at $flightDate1$.",
-          "usr": "I need $travelers$ tickets at $flightDate1$."
+          "agt": "$travelers$ tickets on $flightDate1$.",
+          "usr": "I need $travelers$ tickets on $flightDate1$."
         },
         "inform_slots": [
           "travelers",
@@ -76,7 +76,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$flightDate1$ on $flightDate2$ is available.",
-          "usr": "I want to leave at $flightDate1$ and arrive on $flightDate2$."
+          "usr": "I want to leave on $flightDate1$ and arrive on $flightDate2$."
         },
         "inform_slots": [
           "flightDate2",
@@ -86,8 +86,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "$origin1$ at $flightDate1$ is available.",
-          "usr": "I want to go to $origin1$ at $flightDate1$."
+          "agt": "$origin1$ on $flightDate1$ is available.",
+          "usr": "I want to go to $origin1$ on $flightDate1$."
         },
         "inform_slots": [
           "origin1",
@@ -118,7 +118,7 @@
         "request_slots": [],
         "nl": {
           "agt": "$flightDate1$ to $destination1$ is available.",
-          "usr": "I want to go at $flightDate1$ to $destination1$."
+          "usr": "I want to go on $flightDate1$ to $destination1$."
         },
         "inform_slots": [
           "destination1",
@@ -140,8 +140,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "$travelers$ tickets at $flightDate1$ $flightDate2$.",
-          "usr": "$travelers$ tickets at $flightDate1$ $flightDate2$."
+          "agt": "$travelers$ tickets on $flightDate1$ $flightDate2$.",
+          "usr": "$travelers$ tickets on $flightDate1$ $flightDate2$."
         },
         "inform_slots": [
           "flightDate2",
@@ -174,8 +174,23 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "Okay, I have booked $travelers$ tickets from $origin1$ at $flightDate1$ $flightDate2$ for you.",
-          "usr": "Okay, I have booked $travelers$ tickets from $origin1$ at $flightDate1$ $flightDate2$ for you."
+          "agt": "Okay, I have booked $travelers$ tickets from $origin1$ to $destination1$ departing on $flightDate1$ and arriving on $flightDate2$ for you.",
+          "usr": "Okay, I have booked $travelers$ tickets from $origin1$ to $destination1$ departing on $flightDate1$ and arriving on $flightDate2$ for you."
+        },
+        "inform_slots": [
+          "flightDate2",
+          "taskcomplete",
+          "travelers",
+          "origin1",
+          "destination1",
+          "flightDate1"
+        ]
+      },
+      {
+        "request_slots": [],
+        "nl": {
+          "agt": "Okay, I have booked $travelers$ tickets from $origin1$ departing on $flightDate1$ and arriving on $flightDate2$ for you.",
+          "usr": "Okay, I have booked $travelers$ tickets from $origin1$ departing on $flightDate1$ and arriving on $flightDate2$ for you."
         },
         "inform_slots": [
           "flightDate2",
@@ -188,8 +203,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "Okay, I have booked the tickets from $origin1$ at $flightDate1$ $flightDate2$.",
-          "usr": "Okay, I have booked the tickets from $origin1$ at $flightDate1$ $flightDate2$."
+          "agt": "Okay, I have booked the tickets from $origin1$ on $flightDate1$ $flightDate2$.",
+          "usr": "Okay, I have booked the tickets from $origin1$ on $flightDate1$ $flightDate2$."
         },
         "inform_slots": [
           "flightDate2",
@@ -227,8 +242,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "Okay, I have booked $travelers$ tickets from $origin1$ starting at $flightDate1$.",
-          "usr": "Okay, I have booked $travelers$ tickets from $origin1$ starting at $flightDate1$."
+          "agt": "Okay, I have booked $travelers$ tickets from $origin1$ starting on $flightDate1$.",
+          "usr": "Okay, I have booked $travelers$ tickets from $origin1$ starting on $flightDate1$."
         },
         "inform_slots": [
           "taskcomplete",
@@ -253,8 +268,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "Okay, I have booked the tickets from $origin1$ at $flightDate1$ on $flightDate2$ to $destination1$.",
-          "usr": "Okay, I have booked the tickets from $origin1$ at $flightDate1$ on $flightDate2$ to $destination1$."
+          "agt": "Okay, I have booked the tickets from $origin1$ on $flightDate1$ on $flightDate2$ to $destination1$.",
+          "usr": "Okay, I have booked the tickets from $origin1$ on $flightDate1$ on $flightDate2$ to $destination1$."
         },
         "inform_slots": [
           "flightDate2",
@@ -278,8 +293,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "Okay, I have booked $travelers$ tickets from $origin1$ starting at $flightDate1$ on $flightDate2$.",
-          "usr": "Okay, I have booked $travelers$ tickets from $origin1$ starting at $flightDate1$ on $flightDate2$."
+          "agt": "Okay, I have booked $travelers$ tickets from $origin1$ starting on $flightDate1$ on $flightDate2$.",
+          "usr": "Okay, I have booked $travelers$ tickets from $origin1$ starting on $flightDate1$ on $flightDate2$."
         },
         "inform_slots": [
           "travelers",
@@ -331,8 +346,8 @@
       {
         "request_slots": [],
         "nl": {
-          "agt": "Okay your purchase of $travelers$ tickets from $origin1$ at $flightDate1$ to $destination1$ is confimed!",
-          "usr": "Okay your purchase of $travelers$ tickets from $origin1$ at $flightDate1$ to $destination1$ is confimed!"
+          "agt": "Okay your purchase of $travelers$ tickets from $origin1$ to $destination1$ on $flightDate1$ is confimed!",
+          "usr": "Okay your purchase of $travelers$ tickets from $origin1$ to $destination1$ on $flightDate1$ is confimed!"
         },
         "inform_slots": [
           "destination1",
@@ -481,8 +496,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight and to $destination1$?",
-          "agt": "Which ticket did you buy for your flight and to $destination1$?"
+          "usr": "Can I buy a ticket for a flight to $destination1$?",
+          "agt": "Which ticket did you buy for your flight to $destination1$?"
         },
         "request_slots": [
           "ticket"
@@ -505,8 +520,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight and arriving on $flightDate2$?",
-          "agt": "Which ticket did you buy for your flight and arriving on $flightDate2$?"
+          "usr": "Can I buy a ticket for a flight arriving on $flightDate2$?",
+          "agt": "Which ticket did you buy for your flight arriving on $flightDate2$?"
         },
         "request_slots": [
           "ticket"
@@ -517,8 +532,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -529,8 +544,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ and to $destination1$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ and to $destination1$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$?"
         },
         "request_slots": [
           "ticket"
@@ -542,8 +557,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ and departing on $flightDate1$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ and departing on $flightDate1$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ departing on $flightDate1$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ departing on $flightDate1$?"
         },
         "request_slots": [
           "ticket"
@@ -555,8 +570,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ and arriving on $flightDate2$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ and arriving on $flightDate2$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ arriving on $flightDate2$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ arriving on $flightDate2$?"
         },
         "request_slots": [
           "ticket"
@@ -568,8 +583,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -581,8 +596,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight to $destination1$ and departing on $flightDate1$?",
-          "agt": "Which ticket did you buy for your flight to $destination1$ and departing on $flightDate1$?"
+          "usr": "Can I buy a ticket for a flight to $destination1$ departing on $flightDate1$?",
+          "agt": "Which ticket did you buy for your flight to $destination1$ departing on $flightDate1$?"
         },
         "request_slots": [
           "ticket"
@@ -594,8 +609,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight to $destination1$ and arriving on $flightDate2$?",
-          "agt": "Which ticket did you buy for your flight to $destination1$ and arriving on $flightDate2$?"
+          "usr": "Can I buy a ticket for a flight to $destination1$ arriving on $flightDate2$?",
+          "agt": "Which ticket did you buy for your flight to $destination1$ arriving on $flightDate2$?"
         },
         "request_slots": [
           "ticket"
@@ -607,8 +622,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight to $destination1$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight to $destination1$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight to $destination1$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight to $destination1$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -620,8 +635,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight departing on $flightDate1$ and arriving on $flightDate2$?",
-          "agt": "Which ticket did you buy for your flight departing on $flightDate1$ and arriving on $flightDate2$?"
+          "usr": "Can I buy a ticket for a flight departing on $flightDate1$ arriving on $flightDate2$?",
+          "agt": "Which ticket did you buy for your flight departing on $flightDate1$ arriving on $flightDate2$?"
         },
         "request_slots": [
           "ticket"
@@ -633,8 +648,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -646,8 +661,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -659,8 +674,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ and departing on $flightDate1$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ and departing on $flightDate1$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ departing on $flightDate1$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ departing on $flightDate1$?"
         },
         "request_slots": [
           "ticket"
@@ -673,8 +688,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ and arriving on $flightDate2$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ and arriving on $flightDate2$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ arriving on $flightDate2$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ arriving on $flightDate2$?"
         },
         "request_slots": [
           "ticket"
@@ -687,8 +702,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -715,8 +730,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -729,8 +744,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -757,8 +772,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight to $destination1$ departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight to $destination1$ departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight to $destination1$ departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight to $destination1$ departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -771,8 +786,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight to $destination1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight to $destination1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight to $destination1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight to $destination1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -785,8 +800,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -814,8 +829,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -829,8 +844,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -844,8 +859,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -859,8 +874,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -874,8 +889,8 @@
       },
       {
         "nl": {
-          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "Can I buy a ticket for a flight from $origin1$ to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "Which ticket did you buy for your flight from $origin1$ to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "ticket"
@@ -890,8 +905,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight and to $destination1$?",
-          "agt": "What's the departure airport for your flight and to $destination1$?"
+          "usr": "What's the departure airport of the flight to $destination1$?",
+          "agt": "What's the departure airport for your flight to $destination1$?"
         },
         "request_slots": [
           "origin1"
@@ -902,8 +917,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight and departing on $flightDate1$?",
-          "agt": "What's the departure airport for your flight and departing on $flightDate1$?"
+          "usr": "What's the departure airport of the flight departing on $flightDate1$?",
+          "agt": "What's the departure airport for your flight departing on $flightDate1$?"
         },
         "request_slots": [
           "origin1"
@@ -914,8 +929,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight and arriving on $flightDate2$?",
-          "agt": "What's the departure airport for your flight and arriving on $flightDate2$?"
+          "usr": "What's the departure airport of the flight arriving on $flightDate2$?",
+          "agt": "What's the departure airport for your flight arriving on $flightDate2$?"
         },
         "request_slots": [
           "origin1"
@@ -926,8 +941,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -938,8 +953,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight to $destination1$ and departing on $flightDate1$?",
-          "agt": "What's the departure airport for your flight to $destination1$ and departing on $flightDate1$?"
+          "usr": "What's the departure airport of the flight to $destination1$ departing on $flightDate1$?",
+          "agt": "What's the departure airport for your flight to $destination1$ departing on $flightDate1$?"
         },
         "request_slots": [
           "origin1"
@@ -951,8 +966,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight to $destination1$ and arriving on $flightDate2$?",
-          "agt": "What's the departure airport for your flight to $destination1$ and arriving on $flightDate2$?"
+          "usr": "What's the departure airport of the flight to $destination1$ arriving on $flightDate2$?",
+          "agt": "What's the departure airport for your flight to $destination1$ arriving on $flightDate2$?"
         },
         "request_slots": [
           "origin1"
@@ -964,8 +979,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight to $destination1$ and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight to $destination1$ and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight to $destination1$ for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight to $destination1$ for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -990,8 +1005,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -1003,8 +1018,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -1030,8 +1045,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight to $destination1$ departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight to $destination1$ departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight to $destination1$ departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight to $destination1$ departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -1044,8 +1059,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight to $destination1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight to $destination1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight to $destination1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight to $destination1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -1058,8 +1073,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -1072,8 +1087,8 @@
       },
       {
         "nl": {
-          "usr": "What's the departure airport of the flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the departure airport for your flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the departure airport of the flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the departure airport for your flight to $destination1$ departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "origin1"
@@ -1087,8 +1102,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight and from $origin1$?",
-          "agt": "What's the arrival airport for your flight and from $origin1$?"
+          "usr": "What's the arrival airport of the flight from $origin1$?",
+          "agt": "What's the arrival airport for your flight from $origin1$?"
         },
         "request_slots": [
           "destination1"
@@ -1099,8 +1114,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight and departing on $flightDate1$?",
-          "agt": "What's the arrival airport for your flight and departing on $flightDate1$?"
+          "usr": "What's the arrival airport of the flight departing on $flightDate1$?",
+          "agt": "What's the arrival airport for your flight departing on $flightDate1$?"
         },
         "request_slots": [
           "destination1"
@@ -1111,8 +1126,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight and arriving on $flightDate2$?",
-          "agt": "What's the arrival airport for your flight and arriving on $flightDate2$?"
+          "usr": "What's the arrival airport of the flight arriving on $flightDate2$?",
+          "agt": "What's the arrival airport for your flight arriving on $flightDate2$?"
         },
         "request_slots": [
           "destination1"
@@ -1123,8 +1138,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1135,8 +1150,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight from $origin1$ and departing on $flightDate1$?",
-          "agt": "What's the arrival airport for your flight from $origin1$ and departing on $flightDate1$?"
+          "usr": "What's the arrival airport of the flight from $origin1$ departing on $flightDate1$?",
+          "agt": "What's the arrival airport for your flight from $origin1$ departing on $flightDate1$?"
         },
         "request_slots": [
           "destination1"
@@ -1148,8 +1163,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight from $origin1$ and arriving on $flightDate2$?",
-          "agt": "What's the arrival airport for your flight from $origin1$ and arriving on $flightDate2$?"
+          "usr": "What's the arrival airport of the flight from $origin1$ arriving on $flightDate2$?",
+          "agt": "What's the arrival airport for your flight from $origin1$ arriving on $flightDate2$?"
         },
         "request_slots": [
           "destination1"
@@ -1161,8 +1176,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight from $origin1$ and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight from $origin1$ and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight from $origin1$ for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight from $origin1$ for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1187,8 +1202,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1200,8 +1215,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1227,8 +1242,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight from $origin1$ departing on $flightDate1$ and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight from $origin1$ departing on $flightDate1$ and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight from $origin1$ departing on $flightDate1$ for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight from $origin1$ departing on $flightDate1$ for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1241,8 +1256,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight from $origin1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight from $origin1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight from $origin1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight from $origin1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1255,8 +1270,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1269,8 +1284,8 @@
       },
       {
         "nl": {
-          "usr": "What's the arrival airport of the flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ and for a group of $travelers$?",
-          "agt": "What's the arrival airport for your flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ and for your group of $travelers$?"
+          "usr": "What's the arrival airport of the flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ for a group of $travelers$?",
+          "agt": "What's the arrival airport for your flight from $origin1$ departing on $flightDate1$ arriving on $flightDate2$ for your group of $travelers$?"
         },
         "request_slots": [
           "destination1"
@@ -1284,8 +1299,8 @@
       },
       {
         "nl": {
-          "usr": "When does the flight depart and from $origin1$?",
-          "agt": "What time would you like to depart for your flight and from $origin1$?"
+          "usr": "When does the flight depart from $origin1$?",
+          "agt": "What time would you like to depart for your flight from $origin1$?"
         },
         "request_slots": [
           "flightDate1"
@@ -1296,8 +1311,8 @@
       },
       {
         "nl": {
-          "usr": "When does the flight depart and to $destination1$?",
-          "agt": "What time would you like to depart for your flight and to $destination1$?"
+          "usr": "When does the flight depart to $destination1$?",
+          "agt": "What time would you like to depart for your flight to $destination1$?"
         },
         "request_slots": [
           "flightDate1"
@@ -1332,8 +1347,8 @@
       },
       {
         "nl": {
-          "usr": "When does the flight depart from $origin1$ and to $destination1$?",
-          "agt": "What time would you like to depart for your flight from $origin1$ and to $destination1$?"
+          "usr": "When does the flight depart from $origin1$ to $destination1$?",
+          "agt": "What time would you like to depart for your flight from $origin1$ to $destination1$?"
         },
         "request_slots": [
           "flightDate1"
@@ -1493,8 +1508,8 @@
       },
       {
         "nl": {
-          "usr": "When does the flight arrive and to $destination1$?",
-          "agt": "What time would you like to arrive for your flight and to $destination1$?"
+          "usr": "When does the flight arrive to $destination1$?",
+          "agt": "What time would you like to arrive for your flight to $destination1$?"
         },
         "request_slots": [
           "flightDate2"
@@ -1529,8 +1544,8 @@
       },
       {
         "nl": {
-          "usr": "When does the flight arrive from $origin1$ and to $destination1$?",
-          "agt": "What time would you like to arrive for your flight from $origin1$ and to $destination1$?"
+          "usr": "When does the flight arrive from $origin1$ to $destination1$?",
+          "agt": "What time would you like to arrive for your flight from $origin1$ to $destination1$?"
         },
         "request_slots": [
           "flightDate2"
@@ -1690,8 +1705,8 @@
       },
       {
         "nl": {
-          "usr": "How many travelers can be in the flight and to $destination1$?",
-          "agt": "How many travelers for your flight and to $destination1$?"
+          "usr": "How many travelers can be in the flight to $destination1$?",
+          "agt": "How many travelers for your flight to $destination1$?"
         },
         "request_slots": [
           "travelers"
@@ -1726,8 +1741,8 @@
       },
       {
         "nl": {
-          "usr": "How many travelers can be in the flight from $origin1$ and to $destination1$?",
-          "agt": "How many travelers for your flight from $origin1$ and to $destination1$?"
+          "usr": "How many travelers can be in the flight from $origin1$ to $destination1$?",
+          "agt": "How many travelers for your flight from $origin1$ to $destination1$?"
         },
         "request_slots": [
           "travelers"
